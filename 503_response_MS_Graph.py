@@ -14,8 +14,6 @@ error_resource_type = {
   }
 }
 
-"""Send a reply from the proxy without sending any data to the remote server."""
-
 def request(flow: http.HTTPFlow) -> None:
     if regex.search(flow.request.pretty_url):
         print('SUCCESS!')
