@@ -1,12 +1,11 @@
 #!/bin/sh
-#wav 38MB file creater
-#create test file for cpoying data
-cat $1 > test.vaw
+#create cache file
+cat $1 > cache
 size=$(ls -l $1 | awk '{print $5}')
 echo "actual file size is: $size"
 while [ $size -lt 38000000 ]
 do
-	cat test.vaw >> $1
+	cat cache >> $1
 	size=$(ls -l $1 | awk '{print $5}')
 	if [ $size -ge 38000000 ]
 	then
@@ -15,4 +14,4 @@ do
 done
 echo "new file size is: $size"
 #removing the test file
-rm -rf test.vaw	 
+rm -rf cache	 
